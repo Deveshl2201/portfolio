@@ -56,82 +56,68 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
+            <div className="absolute left-4 md:left-6 top-0 h-full w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
 
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -24 : 24 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, x: 0 }
-                    : { opacity: 0, x: index % 2 === 0 ? -24 : 24 }
-                }
+                initial={{ opacity: 0, x: 18 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 18 }}
                 transition={{ delay: 0.4 + index * 0.15 }}
-                className={`relative mb-12 ${
-                  index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
-                }`}
+                className="relative mb-12 pl-12 md:pl-16"
               >
-                <div
-                  className={`flex ${
-                    index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'
-                  }`}
+                <motion.div
+                  whileHover={{ scale: 1.005 }}
+                  className="glass-effect interactive-card rounded-2xl p-6 md:p-8 relative"
                 >
-                  <div className="w-full md:w-10/12">
-                    <motion.div
-                      whileHover={{ scale: 1.005 }}
-                      className="glass-effect interactive-card rounded-2xl p-6 md:p-8 relative"
-                    >
-                      {/* Current Badge */}
-                      {exp.current && (
-                        <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium border border-green-500/30">
-                            Current
-                          </span>
-                        </div>
-                      )}
+                  {/* Current Badge */}
+                  {exp.current && (
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium border border-green-500/30">
+                        Current
+                      </span>
+                    </div>
+                  )}
 
-                      {/* Company & Role */}
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className="p-3 bg-primary/20 rounded-lg text-primary">
-                          <FaBriefcase size={24} />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
-                            {exp.role}
-                          </h3>
-                          <p className="text-primary font-semibold">
-                            {exp.company}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Period */}
-                      <div className="flex items-center gap-2 mb-4 text-gray-400">
-                        <FaCalendarAlt />
-                        <span>{exp.period}</span>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-gray-300 mb-4">{exp.description}</p>
-
-                      {/* Skills */}
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, skillIndex) => (
-                          <span
-                            key={skillIndex}
-                            className="px-3 py-1 text-xs bg-secondary/20 text-secondary rounded-full border border-secondary/30"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
+                  {/* Company & Role */}
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="p-3 bg-primary/20 rounded-lg text-primary">
+                      <FaBriefcase size={24} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                        {exp.role}
+                      </h3>
+                      <p className="text-primary font-semibold">
+                        {exp.company}
+                      </p>
+                    </div>
                   </div>
-                </div>
+
+                  {/* Period */}
+                  <div className="flex items-center gap-2 mb-4 text-gray-400">
+                    <FaCalendarAlt />
+                    <span>{exp.period}</span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-300 mb-4">{exp.description}</p>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-3 py-1 text-xs bg-secondary/20 text-secondary rounded-full border border-secondary/30"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
 
                 {/* Timeline Dot */}
-                <div className="hidden md:block absolute top-8 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-darker"></div>
+                <div className="absolute top-8 left-4 md:left-6 -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-darker"></div>
               </motion.div>
             ))}
           </div>
