@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #000000;
+  --bg-elevated: #111111;
+  --text-main: #FFFFFF;
+  --text-muted: #CCCCCC;
+  --accent-a: #D4AF37;
+  --accent-b: #FFFFFF;
+  --accent-hover: #C9A227;
+  --border-color: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  background-image: radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.14), transparent 42%),
+    radial-gradient(circle at 84% 78%, rgba(201, 162, 39, 0.08), transparent 40%);
+}
+
+code,
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.34);
+  color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A227;
+}
+
+.glass-effect {
+  background: #111111;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.interactive-card {
+  transform-style: preserve-3d;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.btn-primary {
+  background: #D4AF37;
+  color: #000000;
+  border: 1px solid #D4AF37;
+}
+
+.btn-primary:hover {
+  background: #C9A227;
+  border-color: #C9A227;
+}
+
+
+@media (max-width: 768px) {
+  .interactive-card,
+  .interactive-card:hover {
+    transform: none;
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
