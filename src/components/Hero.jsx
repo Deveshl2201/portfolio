@@ -64,21 +64,6 @@ const Hero = () => {
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-3 mb-8"
-        >
-          <span className="glass-effect px-4 py-2 rounded-full text-sm text-light mono">
-            +91 9035915071
-          </span>
-          <span className="glass-effect px-4 py-2 rounded-full text-sm text-light">
-            Bangalore
-          </span>
-          <span className="glass-effect px-4 py-2 rounded-full text-sm text-light">
-            6+ Month Experience
-          </span>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
           className="flex flex-wrap justify-center gap-4 mb-8"
         >
           <a href="#projects">
